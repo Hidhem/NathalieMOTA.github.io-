@@ -1,0 +1,2 @@
+<img class="header_form" src="<?php echo get_template_directory_uri(); ?>/assets/images/Contact_header.png" alt="header du formulaire">
+<?php echo do_shortcode('[contact-form-7 id="ccd24b1" title="Formulaire de contact 1"]'); ?>

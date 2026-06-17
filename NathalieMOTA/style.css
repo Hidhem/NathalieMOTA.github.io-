@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/*
+Theme Name: Nathalie Mota
+Author: Hidhem
+Version: 1.0
+Description: Thème personnalisé pour le projet Nathalie Mota
+Text Domain: nathalie-mota
+*/
+@font-face {
+  font-family: "SpaceMono";
+  src: url("./assets/fonts/SpaceMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+html {
+  font-family: "SpaceMono", monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header ul, footer ul, nav, main {
+  list-style: none;
+  font-family: "SpaceMono", monospace;
+}
+
+/* nav list */
+.site-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 160px;
+}
+.site-navigation ul {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.burger__contact:hover {
+  cursor: pointer;
+}
+
+.navigation__burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+.navigation__burger .line {
+  width: 30px;
+  height: 2px;
+  background: black;
+  transition: all 0.3s ease;
+}
+
+.navigation__burger.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navigation__burger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.navigation__burger.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu__mobile {
+  display: none;
+  height: 100dvh;
+  background-color: red;
+}
+.menu__mobile ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  height: 50rem;
+}
+.menu__mobile a {
+  font-size: 44px;
+  color: white;
+}
+
+.menu__mobile.active {
+  display: block;
+}
+
+footer {
+  display: flex;
+  height: 40px;
+  justify-items: center;
+  align-content: center;
+  border-top: 1px solid black !important;
+  margin-top: 20px !important;
+}
+
+/* modify contact form */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input,
+.form textarea {
+  box-sizing: border-box;
+}
+
+.form p {
+  font-family: "SpaceMono";
+  margin: 0 0 10px 0;
+}
+
+.form input.form__input {
+  margin: 1px 0 3px 0;
+  width: 263px;
+  height: 40px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #B8BBC2;
+}
+
+.form textarea {
+  margin: 10px 0;
+  width: 263px;
+  height: 210px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #B8BBC2;
+}
+
+.wpcf7-form input[type=submit] {
+  display: flex;
+  justify-content: center;
+  width: 263px;
+  height: 50px;
+  background-color: #D8D8D8;
+  border: none;
+  border-radius: 2px;
+}
+
+.header_form {
+  margin-top: 20px;
+  width: 597px;
+}
+
+.contact__form {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 597px;
+  max-height: 90vh;
+  padding: 20px 0;
+  overflow: auto;
+  border: 5px solid black;
+  background-color: white;
+  z-index: 9999;
+}
+
+.contact__form.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+footer ul {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 912px) {
+  .navigation__burger {
+    display: flex;
+  }
+  .site-navigation ul {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
