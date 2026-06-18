@@ -8,23 +8,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.querySelector(".contact__form");
     const overlay = document.querySelector(".overlay");
 
+    const singleContactButton = document.querySelector(".left__button");
+
     // Burger menu
-    burger.addEventListener("click", () => {
-        menu.classList.toggle("active");
-        menuMobile.classList.toggle("active");
-        burger.classList.toggle("active");
-    });
+    if (burger && menu && menuMobile) {
+        burger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+            menuMobile.classList.toggle("active");
+            burger.classList.toggle("active");
+        });
+    }
 
-    // Open contact
-    contactButton.addEventListener("click", () => {
-        contactForm.classList.add("active");
-        overlay.classList.add("active");
-    });
+    // Open contact (header button)
+    if (contactButton && contactForm && overlay) {
+        contactButton.addEventListener("click", () => {
+            contactForm.classList.add("active");
+            overlay.classList.add("active");
+        });
+    }
 
-    // close contact
-    overlay.addEventListener("click", () => {
-        contactForm.classList.remove("active");
-        overlay.classList.remove("active");
-    });
+    // Open contact (single page button)
+    if (singleContactButton && contactForm && overlay) {
+        singleContactButton.addEventListener("click", () => {
+            contactForm.classList.add("active");
+            overlay.classList.add("active");
+        });
+    }
+
+    // close contact on overlay click
+    if (overlay && contactForm) {
+        overlay.addEventListener("click", () => {
+            contactForm.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+    }
 
 });
