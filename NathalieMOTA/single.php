@@ -29,7 +29,10 @@ $next_post = get_next_post();
                     <div class="single__contact">
                         <div contact__left>
                             <span>Cette photo vous intéresse ?</span>
-                            <button class="left__button">Contact</button>
+                            <button class="left__button"
+                                data-reference="<?php echo get_post_meta(get_the_ID(), 'reference', true); ?>">
+                                Contact
+                            </button>
                         </div>
                         <div class="contact__side">
                             <div class="side__previeuw">

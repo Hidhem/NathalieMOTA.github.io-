@@ -44,3 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
+// Jquerry
+
+jQuery(function($) {
+
+    $(document).on('click', '.left__button', function() {
+
+        const ref = $(this).data('reference');
+
+        $('#photo-reference').val(ref);
+
+    });
+
+});
