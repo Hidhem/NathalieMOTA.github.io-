@@ -10,7 +10,7 @@ $next_post = get_next_post();
                 <div class="full-single">
 
                     <div class="single__hero">
-                        <div class="hero__description">
+                        <div class="single__description">
                             <ul>
                                 <h1><?php the_title(); ?></h1>
                                 <li>RÉFÉRENCE : <?php echo get_post_meta(get_the_ID(), 'reference', true); ?></li>
@@ -21,7 +21,7 @@ $next_post = get_next_post();
                             </ul>
                             <span class="separator"></span>
                         </div>
-                        <div class="hero__photo">
+                        <div class="single__photo">
                             <?php the_post_thumbnail('large'); ?>
                         </div>
                     </div>

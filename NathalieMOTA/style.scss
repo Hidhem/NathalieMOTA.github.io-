@@ -31,8 +31,8 @@ ul {
     padding: 0;
     margin: 0;
 }
-// header
 
+// header
 .site-navigation {
     display: flex;
     justify-content: space-between;
@@ -47,8 +47,36 @@ ul {
     cursor: pointer;
 }
 
-// burger menu
+// footer
+footer{
+    padding: 10px 0 18px 0;
+    border-top: 1px solid ;
 
+    & ul{
+    display: flex;
+    justify-content: center;
+    gap: 80px;}
+}
+
+// main hero
+
+.hero{
+    height: 90vh;
+    background-image: url('./assets/images/Hero_Header.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1{
+    background-image: url('./assets/images/Hero_Title.png');
+    color: rgba(255, 255, 255, 0);
+    font-size: 96px;
+}
+
+// burger menu
 .navigation__burger {
     display: none;
     flex-direction: column;
@@ -72,7 +100,6 @@ ul {
 }
 
 // mobil menu
-
 .menu__mobile {
     display: none;
     height: 100dvh;
@@ -95,7 +122,6 @@ ul {
 }
 
 // contact modal
-
 .contact__form {
     opacity: 0;
     visibility: hidden;
@@ -138,7 +164,6 @@ ul {
 }
 
 // contact form
-
 .form {
     display: flex;
     flex-direction: column;
@@ -171,13 +196,11 @@ ul {
     background: $light-gray;
     border: none;
 }
-
 .wpcf7-form input[type="submit"]:hover {
     cursor: pointer;
 }
 
 // single
-
 .full-single {
     max-width: 1200px;
     margin: 30px auto;
@@ -188,7 +211,7 @@ ul {
     gap: 40px;
     align-items: stretch;
 }
-.hero__description {
+.single__description {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -208,7 +231,7 @@ ul {
     width: 70%;
     line-height: 60px;}
 }
-.hero__photo {
+.single__photo {
     flex: 1;
     display: flex;
     align-items: center;
@@ -222,7 +245,6 @@ ul {
 }
 
 // single contact 
-
 .single__contact {
     display: flex;
     justify-content: space-between;
@@ -253,15 +275,14 @@ ul {
 }
 
 // separator
-
 .separator {
     height: 1px;
     width: 100%;
     background: black;
     margin: 20px 0;
 }
-// more photo
 
+// more photo
 .single__more{
     padding-top: 50px;
 }
@@ -287,19 +308,6 @@ ul {
     object-fit: cover;
     display: block;
 }
-
-
-// footer
-footer{
-    padding: 10px 0 18px 0;
-    border-top: 1px solid ;
-
-    & ul{
-    display: flex;
-    justify-content: center;
-    gap: 80px;}
-}
-
 @media (max-width: 912px) {
 
     .site-navigation ul {
