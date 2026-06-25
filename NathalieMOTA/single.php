@@ -79,19 +79,12 @@ $next_post = get_next_post();
 
                         <div class="more__photos">
                             <?php if ($related_photos->have_posts()) : ?>
-                            <?php while ($related_photos->have_posts()) : $related_photos->the_post(); ?>
-
-                        <div class="photo-card">
-                            <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('large'); ?>
-                            </a>
-
-                        </div>
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
+                                <?php while ($related_photos->have_posts()) : $related_photos->the_post(); ?>
+                                    <?php get_template_part('template-parts/photo-card'); ?>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
                             <?php endif; ?>
                         </div>
-                        
                 </div>
         </div>
 <?php endwhile; ?>

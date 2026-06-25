@@ -45,9 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
 // Jquerry
-
 jQuery(function($) {
 
     $(document).on('click', '.left__button', function() {
@@ -59,3 +57,31 @@ jQuery(function($) {
     });
 
 });
+
+// Ajax filtered
+
+jQuery(document).ready(function($) {
+    function filterPhotos() {
+        let categorie = $('#categorie-filter').val();
+        let format = $('#format-filter').val();
+        let sort = $('#sort-filter').val();
+        $.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'filter_photos',
+                categorie: categorie,
+                format: format,
+                sort: sort
+            },
+            success: function(response) {
+                $('.photo-gallery__loop').html(response);
+            }
+        });
+    }
+    $('#categorie-filter').on('change', filterPhotos);
+    $('#format-filter').on('change', filterPhotos);
+    $('#sort-filter').on('change', filterPhotos);
+
+});
+
