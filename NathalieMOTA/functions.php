@@ -65,3 +65,34 @@ function filter_photos() {
 
 add_action('wp_ajax_filter_photos', 'filter_photos');
 add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');
+
+//  more loadinge feature
+
+add_action('wp_ajax_load_more_photos', 'load_more_photos');
+add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+
+function load_more_photos() {
+
+    if (
+        !isset($_POST['nonce']) ||
+        !wp_verify_nonce($_POST['nonce'], 'load_more_photos')
+    ) {
+        wp_send_json_error();
+    }
+    $paged = intval($_POST['page']);
+    $args = [
+        'post_type' => 'photo',
+        'posts_per_page' => 8,
+        'paged' => $paged
+    ];
+    $photos = new WP_Query($args);
+    ob_start();
+    if ($photos->have_posts()) {
+        while ($photos->have_posts()) {
+            $photos->the_post();
+            get_template_part('template-parts/photo-card');
+        }
+    }
+    wp_reset_postdata();
+    wp_send_json_success(ob_get_clean());
+}

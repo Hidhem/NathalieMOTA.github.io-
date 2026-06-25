@@ -141,6 +141,10 @@ footer ul {
   font-weight: 500;
 }
 
+.load-more:hover {
+  cursor: pointer;
+}
+
 select,
 ::picker(select) {
   -webkit-appearance: base-select;

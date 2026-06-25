@@ -85,3 +85,26 @@ jQuery(document).ready(function($) {
 
 });
 
+// more load feature
+
+jQuery(function($){
+    let currentPage = 1;
+    $('.load-more').on('click', function(e){
+        e.preventDefault();
+        currentPage++;
+        $.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'load_more_photos',
+                nonce: $(this).data('nonce'),
+                page: currentPage
+            },
+            success: function(response){
+                if(response.success){
+                    $('.photo-gallery__loop').append(response.data);
+                }
+            }
+        });
+    });
+});

@@ -54,23 +54,28 @@
     </div>
 
     <div class="photo-gallery__loop">
-    <?php
-        $args = [
-        'post_type' => 'photo',
-        'posts_per_page' => 8];
-        $photos = new WP_Query($args);
-        if ($photos->have_posts()) :
-        while ($photos->have_posts()) :
-        $photos->the_post();
-        get_template_part('template-parts/photo-card');
-        endwhile;
-        wp_reset_postdata();
-        endif;
-    ?>
+        <?php
+            $args = [
+            'post_type' => 'photo',
+            'posts_per_page' => 8];
+            $photos = new WP_Query($args);
+            if ($photos->have_posts()) :
+            while ($photos->have_posts()) :
+            $photos->the_post();
+            get_template_part('template-parts/photo-card');
+            endwhile;
+            wp_reset_postdata();
+            endif;
+        ?>
     </div>
 
     <div class="photo-gallery__button">
-        <button>Charger plus</button>
+        <div class="photo-gallery__button">
+            <button
+                class="load-more"
+                data-nonce="<?php echo wp_create_nonce('load_more_photos'); ?>">Charger plus
+            </button>
+</div>
     </div>
 </section>
 
