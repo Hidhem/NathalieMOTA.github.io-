@@ -50,8 +50,8 @@ function filter_photos() {
         $args['tax_query'] = $tax_query;
     }
     if (!empty($_POST['sort'])) {
-        $args['order'] = $_POST['sort'];
         $args['orderby'] = 'date';
+        $args['order'] = sanitize_text_field($_POST['sort']);
     }
     $photos = new WP_Query($args);
     if ($photos->have_posts()) :
@@ -72,21 +72,41 @@ add_action('wp_ajax_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
 
 function load_more_photos() {
-
     if (
         !isset($_POST['nonce']) ||
         !wp_verify_nonce($_POST['nonce'], 'load_more_photos')
     ) {
         wp_send_json_error();
     }
-    $paged = intval($_POST['page']);
+    ob_start();
     $args = [
         'post_type' => 'photo',
         'posts_per_page' => 8,
-        'paged' => $paged
+        'paged' => intval($_POST['page'])
     ];
+    $tax_query = [];
+    if (!empty($_POST['categorie'])) {
+        $tax_query[] = [
+            'taxonomy' => 'categorie',
+            'field' => 'slug',
+            'terms' => $_POST['categorie']
+        ];
+    }
+    if (!empty($_POST['format'])) {
+        $tax_query[] = [
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => $_POST['format']
+        ];
+    }
+    if ($tax_query) {
+        $args['tax_query'] = $tax_query;
+    }
+    if (!empty($_POST['sort'])) {
+        $args['orderby'] = 'date';
+        $args['order'] = sanitize_text_field($_POST['sort']);
+    }
     $photos = new WP_Query($args);
-    ob_start();
     if ($photos->have_posts()) {
         while ($photos->have_posts()) {
             $photos->the_post();

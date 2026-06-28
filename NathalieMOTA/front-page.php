@@ -1,9 +1,7 @@
 <?php get_header(); ?>
-
 <section class="hero">
     <h1>PHOTOGRAPHE EVENT</h1>
 </section>
-
 <section class="photo-gallery">
     <div class="photo-gallery__filter">
         <div>
@@ -15,7 +13,6 @@
                         'taxonomy' => 'categorie',
                         'hide_empty' => true,
                         ]);
-
                         foreach ($categories as $categorie) :
                         ?>
                         <option value="<?php echo esc_attr($categorie->slug); ?>">
@@ -32,7 +29,6 @@
                         'taxonomy' => 'format',
                         'hide_empty' => true,
                         ]);
-
                         foreach ($format as $format) :
                         ?>
                         <option value="<?php echo esc_attr($format->slug); ?>">
@@ -46,8 +42,8 @@
             <div class="select-wrapper">
                 <select class="filter" name="sort by" id="sort-filter">
                     <option value="">TRIER PAR</option>
-                    <option value="fr">Plus récentes</option>
-                    <option value="be">Plus anciennes</option>
+                    <option value="DESC">Plus récentes</option>
+                    <option value="ASC">Plus anciennes</option>
                 </select>
             </div>
         </div>      
@@ -68,7 +64,6 @@
             endif;
         ?>
     </div>
-
     <div class="photo-gallery__button">
         <div class="photo-gallery__button">
             <button
@@ -78,6 +73,4 @@
 </div>
     </div>
 </section>
-
-
 <?php get_footer(); ?>
