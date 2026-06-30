@@ -16,7 +16,7 @@
             </div>
             <ul>
                 <li><a href=".accueil">ACCUEIL</a></li>
-                <li><a href=".accueil">À PROPOS</a></li>
+                <li><a href=".a-propos">À PROPOS</a></li>
                 <li class="burger__contact">CONTACT</li>
             </ul>
 		</nav>

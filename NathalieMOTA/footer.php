@@ -29,4 +29,14 @@
 
 </div>
 
+<div class="footer">
+
+<div class="separator"></div>
+    <ul>
+        <li><a href=".mentions-legales">Mentions Légales</a></li>
+        <li><a href=".vie-privee">Vie privée</a></li>
+        <li>Tous droits réservés</li>
+    </ul>
+</div>
+
 <?php wp_footer(); ?>
